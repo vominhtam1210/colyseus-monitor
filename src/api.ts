@@ -12,6 +12,13 @@ export function getAPI (opts: Partial<MonitorOptions>) {
 
     api.get("/", async (req: express.Request, res: express.Response) => {
         try {
+            if (!req.get('X-GS-CSRF-PROTECTION'))
+            {
+                res.status(400);
+                res.json({ error: 'Invalid or missing CSRF token' });
+                return;
+            }
+
             const rooms: any[] = await matchMaker.query({});
             const columns = opts.columns || ['roomId', 'name', 'clients', 'maxClients', 'locked', 'elapsedTime'];
 
@@ -54,6 +61,12 @@ export function getAPI (opts: Partial<MonitorOptions>) {
     api.get("/room", async (req: express.Request, res: express.Response) => {
         const roomId = req.query.roomId as string;
         try {
+            if (!req.get('X-GS-CSRF-PROTECTION'))
+            {
+                res.status(400);
+                res.json({ error: 'Invalid or missing CSRF token' });
+                return;
+            }
             const inspectData = await matchMaker.remoteRoomCall(roomId, "getInspectData");
             res.json(inspectData);
         } catch (e) {
@@ -70,6 +83,12 @@ export function getAPI (opts: Partial<MonitorOptions>) {
         const args = JSON.parse(req.query.args as string);
 
         try {
+            if (!req.get('X-GS-CSRF-PROTECTION'))
+            {
+                res.status(400);
+                res.json({ error: 'Invalid or missing CSRF token' });
+                return;
+            }
             const data = await matchMaker.remoteRoomCall(roomId, method, args);
             res.json(data);
         } catch (e) {
