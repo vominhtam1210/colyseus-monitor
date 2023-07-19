@@ -16,7 +16,8 @@ export interface MonitorOptions {
         'elapsedTime' |
         { metadata: string } |
         "publicAddress"
-    >
+    >,
+    csrfToken?: string
 }
 
 /**

@@ -83,7 +83,8 @@ export function getAPI (opts: Partial<MonitorOptions>) {
         const args = req.body.args as any[];
 
         try {
-            if (!req.get('X-GS-CSRF-PROTECTION'))
+            const csrfToken = req.get('X-GS-CSRF-PROTECTION');
+            if (!csrfToken || (opts.csrfToken && opts.csrfToken != csrfToken))
             {
                 res.status(400);
                 res.json({ error: 'Invalid or missing CSRF token' });
