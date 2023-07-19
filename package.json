@@ -1,6 +1,6 @@
 {
   "name": "@vominhtam1210/colyseus-monitor",
-  "version": "0.14.32",
+  "version": "0.14.33",
   "description": "Web Monitoring Panel for Colyseus",
   "input": "./src/index.ts",
   "main": "./build/index.js",
