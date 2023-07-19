@@ -77,10 +77,10 @@ export function getAPI (opts: Partial<MonitorOptions>) {
         }
     });
 
-    api.get("/room/call", async (req: express.Request, res: express.Response) => {
-        const roomId = req.query.roomId as string;
-        const method = req.query.method as string;
-        const args = JSON.parse(req.query.args as string);
+    api.post("/room/call", async (req: express.Request, res: express.Response) => {
+        const roomId = req.body.roomId as string;
+        const method = req.body.method as string;
+        const args = req.body.args as any[];
 
         try {
             if (!req.get('X-GS-CSRF-PROTECTION'))

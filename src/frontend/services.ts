@@ -21,8 +21,8 @@ export function fetchRoomData (roomId: string) {
 }
 
 export function remoteRoomCall(roomId: string, method: string, ...args: any[]) {
-    return http.get(`${ENDPOINT}/api/room/call`).
-        query({ roomId, method, args: JSON.stringify(args) }).
+    return http.post(`${ENDPOINT}/api/room/call`).
+        send({ roomId, method, args }).
         set('X-GS-CSRF-PROTECTION', '1').
         accept('application/json');
 }
