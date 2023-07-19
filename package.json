@@ -1,6 +1,6 @@
 {
-  "name": "@colyseus/monitor",
-  "version": "0.15.1",
+  "name": "@vominhtam1210/colyseus-monitor",
+  "version": "0.14.30",
   "description": "Web Monitoring Panel for Colyseus",
   "input": "./src/index.ts",
   "main": "./build/index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/colyseus/colyseus.git"
+    "url": "git://github.com/vominhtam1210/colyseus-monitor.git"
   },
   "keywords": [
     "colyseus",
@@ -26,11 +26,11 @@
   "author": "Endel Dreyer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/colyseus/colyseus/issues"
+    "url": "https://github.com/vominhtam1210/colyseus-monitor/issues"
   },
-  "homepage": "https://github.com/colyseus/colyseus#readme",
+  "homepage": "https://github.com/vominhtam1210/colyseus-monitor#readme",
   "devDependencies": {
-    "@colyseus/core": "^0.15.0-preview.2",
+    "@colyseus/core": "^0.14.20",
     "@types/material-ui": "^0.21.1",
     "@types/node-os-utils": "^1.1.0",
     "@types/react": "^16.3.9",
